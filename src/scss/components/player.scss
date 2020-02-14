@@ -1,0 +1,19 @@
+.player{
+    &__container{
+        width: 100vw;
+        height: 80px;
+        background: #0d1525;
+    }
+
+    &__buttons{
+        &--prev{
+            color: red;
+        }
+        &--play{
+            color: green;
+        }
+        &--next{
+            color: grey;
+        }
+    }
+}
