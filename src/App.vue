@@ -1,7 +1,8 @@
 <template>
     <div id="app">
-        <world></world>
-        <app-player></app-player>
+        <navBar></navBar>
+        <mainPic></mainPic>
+        <player></player>
     </div>
 </template>
 

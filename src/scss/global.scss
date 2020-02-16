@@ -1,5 +1,9 @@
+@import "variables";
 @import "components/player";
+@import "components/navBar";
+@import "components/content";
 
-div {
+
+* {
     font-family: 'Poppins', sans-serif;
 }

@@ -1,19 +1,64 @@
-.player{
-    &__container{
+.player {
+    &__container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100vw;
-        height: 80px;
-        background: #0d1525;
+        display: flex;
+        flex-direction: column;
+        background: $dark;
+
+        &--top {
+            width: inherit;
+            display: flex;
+            align-items: center;
+        }
     }
 
-    &__buttons{
-        &--prev{
-            color: red;
+    &__buttons {
+        width: 40px;
+        height: 40px;
+        margin: {
+            right: 15px;
+            left: 15px;
+        };
+
+        &:active {
+            transform: scale(.8);
         }
-        &--play{
-            color: green;
+
+        &.disable {
+            display: none;
         }
-        &--next{
-            color: grey;
+
+        &--container {
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    &__track-description {
+        color: $textColor;
+    }
+
+    &__progress-track {
+        background: $barBack;
+        width: calc(100vw - 60px);
+        height: 30px;
+        border-radius: 8px;
+
+
+        &--container {
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        &--fill {
+            width: 20%;
+            background: $barFill;
         }
     }
 }

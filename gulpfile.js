@@ -1,4 +1,4 @@
-const {src, watch, dest} = require('gulp');
+const {src, watch, dest, series} = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require("gulp-autoprefixer");
 const notify = require('gulp-notify');
@@ -14,7 +14,7 @@ function style() {
 }
 
 function watcher() {
-    watch(['./src/scss/**/*.scss']).on('change',style);
+    watch(['./src/scss/**/*.scss']).on('change', style);
 }
 
-exports.default = watcher;
+exports.default = series(style, watcher);

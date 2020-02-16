@@ -1,0 +1,45 @@
+.navBar {
+    &__container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 80px;
+        width: 100vw;
+
+        background: $dark;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__pages{
+        &--container{
+            display: flex;
+            height: inherit;
+            margin: 0 30px;
+
+        }
+    }
+    &__page{
+        width: 50px;
+        margin: 0 10px;
+        border: none;
+        background: $dark;
+        color: $textColor;
+        text-transform: uppercase;
+
+        &:active{
+            transform: scale(.8);
+        }
+    }
+    &__account{
+        color: $textColor;
+        &--container{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around;
+            align-items: center;
+            margin: 0 20px;
+        }
+    }
+}
