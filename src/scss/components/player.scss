@@ -41,6 +41,17 @@
 
     &__track-description {
         color: $textColor;
+        &--time{
+            position: absolute;
+            top: 4px;
+
+            &-current{
+                left: 5px;
+            }
+            &-total{
+                right: 5px;
+            }
+        }
     }
 
     &__progress-track {
@@ -48,17 +59,20 @@
         width: calc(100vw - 60px);
         height: 30px;
         border-radius: 8px;
-
+        position: relative;
 
         &--container {
             margin: 10px;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
         }
 
         &--fill {
-            width: 20%;
+            width: 1%;
             background: $barFill;
+
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
