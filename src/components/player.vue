@@ -32,7 +32,6 @@
         <audio id="audio"
                crossorigin="anonymous"
                preload="metadata"
-               type="media"
                src="../track/Warriors.mp3"
                @timeupdate="progressBar"
                @loadedmetadata="getDuration">
