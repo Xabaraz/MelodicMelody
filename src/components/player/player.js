@@ -1,4 +1,4 @@
-import {getTime} from "./utils"
+import {getTime} from "../../js/utils"
 
 
 let duration,
@@ -17,62 +17,62 @@ export default {
             currentTrackTime: '0:00',
             trackList: [
                 {
-                    src: require('../track/Warriors.mp3'),
+                    src: require('../../track/Warriors.mp3'),
                     title: 'Warriors',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Battle Cry.mp3'),
+                    src: require('../../track/Battle Cry.mp3'),
                     title: 'Battle Cry',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Monster.mp3'),
+                    src: require('../../track/Monster.mp3'),
                     title: 'Monster',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Death Parad.mp3'),
+                    src: require('../../track/Death Parad.mp3'),
                     title: 'Death Parad',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Ведьма I.mp3'),
+                    src: require('../../track/Ведьма I.mp3'),
                     title: 'Ведьма I',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Ведьма II.mp3'),
+                    src: require('../../track/Ведьма II.mp3'),
                     title: 'Ведьма II',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Дикая охота.mp3'),
+                    src: require('../../track/Дикая охота.mp3'),
                     title: 'Дикая охота',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Геймер.mp3'),
+                    src: require('../../track/Геймер.mp3'),
                     title: 'Геймер',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Герой с тысячью лиц.mp3'),
+                    src: require('../../track/Герой с тысячью лиц.mp3'),
                     title: 'Герой с тысячью лиц',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Символ мироздания.mp3'),
+                    src: require('../../track/Символ мироздания.mp3'),
                     title: 'Символ мироздания',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Никто вместо нас.mp3'),
+                    src: require('../../track/Никто вместо нас.mp3'),
                     title: 'Никто вместо нас.',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../track/Песня ведьм.mp3'),
+                    src: require('../../track/Песня ведьм.mp3'),
                     title: 'Песня ведьм',
                     album: 'White Rose'
                 },

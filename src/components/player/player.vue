@@ -3,16 +3,16 @@
         <div class="player__container--top">
             <div class="player__buttons--container">
                 <div @click="previous" id="previous">
-                    <img src="../icons/previous.svg" class="player__buttons player__buttons--prev">
+                    <img src="src/icons/previous.svg" class="player__buttons player__buttons--prev">
                 </div>
                 <div @click="playTrack" id="play">
-                    <img src="../icons/play.svg" class="player__buttons player__buttons--play">
+                    <img src="src/icons/play.svg" class="player__buttons player__buttons--play">
                 </div>
                 <div @click="pauseTrack" id="pause">
-                    <img src="../icons/pause.svg" class="player__buttons player__buttons--pause disable">
+                    <img src="src/icons/pause.svg" class="player__buttons player__buttons--pause disable">
                 </div>
                 <div @click="next" id="next">
-                    <img src="../icons/next.svg" class="player__buttons player__buttons--next">
+                    <img src="src/icons/next.svg" class="player__buttons player__buttons--next">
                 </div>
             </div>
             <div class="player__track-description">
@@ -40,4 +40,4 @@
     </div>
 </template>
 
-<script src="../js/player.js"></script>
+<script src="src/components/player/player.js"></script>

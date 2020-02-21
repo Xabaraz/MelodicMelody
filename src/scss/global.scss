@@ -1,7 +1,7 @@
 @import "variables";
-@import "components/player";
-@import "components/navBar";
-@import "components/content";
+@import "src/components/player/player";
+@import "src/components/navBar/navBar";
+@import "src/components/content/content";
 
 
 * {
