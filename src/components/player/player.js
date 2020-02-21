@@ -1,12 +1,12 @@
-import {getTime} from "../../js/utils"
-
+import {getTime} from "../../js/utils";
+import * as $ from "jquery";
 
 let duration,
     playEl,
     pauseEl,
     countTrack = 0,
-    progressEl;
-const $audio = new Audio();
+    progressEl,
+    $audio;
 
 export default {
     data: () => {
@@ -80,7 +80,7 @@ export default {
         }
     },
     methods: {
-        playTrack: function playTrack() {
+        playTrack: function () {
             playEl.addClass('disable');
             pauseEl.removeClass('disable');
             $audio.play();
@@ -95,15 +95,16 @@ export default {
             const nextTrack = this.$data.trackList[countTrack];
             $audio.src = nextTrack.src;
             this.$data.title = nextTrack.title;
-            $audio.load();
-            playTrack();
+            this.pauseTrack();
+            this.playTrack();
         },
         previous: function () {
             countTrack = (countTrack !== 0) ? countTrack - 1 : this.$data.trackList.length;
             const prevTrack = this.$data.trackList[countTrack];
             $audio.src = prevTrack.src;
             this.$data.title = prevTrack.title;
-            $audio.load();
+            this.pauseTrack();
+            this.playTrack();
         },
         progressBar: function () {
             progressEl.css('width', `${($audio.currentTime / duration * 100).toFixed(2)}%`);
@@ -115,9 +116,12 @@ export default {
         }
     },
     mounted: function () {
+        $audio = $('audio').get(0);
         $audio.src = this.$data.trackList[countTrack].src;
         playEl = $('#play > img');
         pauseEl = $('#pause > img');
         progressEl = $('#progressBar');
+        this.getDuration();
     }
+
 }
