@@ -6,6 +6,7 @@ let duration,
     pauseEl,
     countTrack = 0,
     progressEl,
+    volumeEl,
     $audio;
 
 export default {
@@ -15,64 +16,65 @@ export default {
             album: 'White Rose',
             totalTrackTime: '0:00',
             currentTrackTime: '0:00',
+            volume: "70",
             trackList: [
                 {
-                    src: require('../../track/Warriors.mp3'),
+                    src: require('@tracks/Warriors.mp3'),
                     title: 'Warriors',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Battle Cry.mp3'),
+                    src: require('@tracks/Battle Cry.mp3'),
                     title: 'Battle Cry',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Monster.mp3'),
+                    src: require('@tracks/Monster.mp3'),
                     title: 'Monster',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Death Parad.mp3'),
+                    src: require('@tracks/Death Parad.mp3'),
                     title: 'Death Parad',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Ведьма I.mp3'),
+                    src: require('@tracks/Ведьма I.mp3'),
                     title: 'Ведьма I',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Ведьма II.mp3'),
+                    src: require('@tracks/Ведьма II.mp3'),
                     title: 'Ведьма II',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Дикая охота.mp3'),
+                    src: require('@tracks/Дикая охота.mp3'),
                     title: 'Дикая охота',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Геймер.mp3'),
+                    src: require('@tracks/Геймер.mp3'),
                     title: 'Геймер',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Герой с тысячью лиц.mp3'),
+                    src: require('@tracks/Герой с тысячью лиц.mp3'),
                     title: 'Герой с тысячью лиц',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Символ мироздания.mp3'),
+                    src: require('@tracks/Символ мироздания.mp3'),
                     title: 'Символ мироздания',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Никто вместо нас.mp3'),
+                    src: require('@tracks/Никто вместо нас.mp3'),
                     title: 'Никто вместо нас.',
                     album: 'White Rose'
                 },
                 {
-                    src: require('../../track/Песня ведьм.mp3'),
+                    src: require('@tracks/Песня ведьм.mp3'),
                     title: 'Песня ведьм',
                     album: 'White Rose'
                 },
@@ -107,20 +109,27 @@ export default {
             this.playTrack();
         },
         progressBar: function () {
-            progressEl.css('width', `${($audio.currentTime / duration * 100).toFixed(2)}%`);
+            progressEl.value  = `${($audio.currentTime / duration * 100).toFixed(2)}`;
             this.$data.currentTrackTime = getTime($audio.currentTime);
             this.$data.totalTrackTime = getTime(duration);
         },
         getDuration: () => {
             duration = $audio.duration;
+        },
+        changeVolume: function () {
+            this.$data.volume = volumeEl.value;
+            $audio.volume = this.$data.volume / 100;
+            console.log($audio.volume);
+            console.log(volumeEl.value);
         }
     },
     mounted: function () {
         $audio = $('audio').get(0);
+        volumeEl = $('#trackVolume').get(0);
         $audio.src = this.$data.trackList[countTrack].src;
         playEl = $('#play > img');
         pauseEl = $('#pause > img');
-        progressEl = $('#progressBar');
+        progressEl = $('#trackProgressBar');
         this.getDuration();
     }
 

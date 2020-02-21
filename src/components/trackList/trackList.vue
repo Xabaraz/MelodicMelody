@@ -1,13 +1,11 @@
 <template>
-    
+
+    <div>
+        <ul>
+            <Track v-bind:trackList="trackList" />
+        </ul>
+    </div>
+
 </template>
 
-<script>
-    export default {
-        name: "trackList"
-    }
-</script>
-
-<style scoped>
-
-</style>
+<script src="trackList.js"></script>
