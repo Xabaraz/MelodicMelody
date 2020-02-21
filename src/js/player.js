@@ -2,12 +2,11 @@ import {getTime} from "./utils"
 
 
 let duration,
-    audioEl,
-    $audio,
     playEl,
     pauseEl,
     countTrack = 0,
     progressEl;
+const $audio = new Audio();
 
 export default {
     data: () => {
@@ -18,62 +17,62 @@ export default {
             currentTrackTime: '0:00',
             trackList: [
                 {
-                    src: '../track/Warriors.mp3',
+                    src: require('../track/Warriors.mp3'),
                     title: 'Warriors',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Warriors.mp3',
+                    src: require('../track/Battle Cry.mp3'),
                     title: 'Battle Cry',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Monster.mp3',
+                    src: require('../track/Monster.mp3'),
                     title: 'Monster',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Death Parad.mp3',
+                    src: require('../track/Death Parad.mp3'),
                     title: 'Death Parad',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Ведьма I.mp3',
+                    src: require('../track/Ведьма I.mp3'),
                     title: 'Ведьма I',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Ведьма II.mp3',
+                    src: require('../track/Ведьма II.mp3'),
                     title: 'Ведьма II',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Дикая охота.mp3',
+                    src: require('../track/Дикая охота.mp3'),
                     title: 'Дикая охота',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Геймер.mp3',
+                    src: require('../track/Геймер.mp3'),
                     title: 'Геймер',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Герой с тысячью лиц.mp3',
+                    src: require('../track/Герой с тысячью лиц.mp3'),
                     title: 'Герой с тысячью лиц',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Символ мироздания.mp3',
+                    src: require('../track/Символ мироздания.mp3'),
                     title: 'Символ мироздания',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Никто вместо нас..mp3',
+                    src: require('../track/Никто вместо нас.mp3'),
                     title: 'Никто вместо нас.',
                     album: 'White Rose'
                 },
                 {
-                    src: '../track/Песня ведьм.mp3',
+                    src: require('../track/Песня ведьм.mp3'),
                     title: 'Песня ведьм',
                     album: 'White Rose'
                 },
@@ -81,48 +80,44 @@ export default {
         }
     },
     methods: {
-        playTrack: function() {
+        playTrack: function playTrack() {
             playEl.addClass('disable');
             pauseEl.removeClass('disable');
-            $audio.trigger('play');
+            $audio.play();
         },
         pauseTrack: () => {
             pauseEl.addClass('disable');
             playEl.removeClass('disable');
-            $audio.trigger('pause');
+            $audio.pause();
         },
         next: function () {
             countTrack = (countTrack !== this.$data.trackList.length) ? countTrack + 1 : 0;
             const nextTrack = this.$data.trackList[countTrack];
-            $audio.get(0).src = nextTrack.src;
+            $audio.src = nextTrack.src;
             this.$data.title = nextTrack.title;
-            $audio.trigger('load');
+            $audio.load();
+            playTrack();
         },
         previous: function () {
             countTrack = (countTrack !== 0) ? countTrack - 1 : this.$data.trackList.length;
             const prevTrack = this.$data.trackList[countTrack];
-            $audio.attr('src', prevTrack.src);
+            $audio.src = prevTrack.src;
             this.$data.title = prevTrack.title;
-            $audio.trigger('load');
+            $audio.load();
         },
         progressBar: function () {
-            progressEl.css('width', `${(audioEl.currentTime / duration * 100).toFixed(2)}%`);
-            this.$data.currentTrackTime = getTime(audioEl.currentTime);
+            progressEl.css('width', `${($audio.currentTime / duration * 100).toFixed(2)}%`);
+            this.$data.currentTrackTime = getTime($audio.currentTime);
             this.$data.totalTrackTime = getTime(duration);
         },
         getDuration: () => {
-            duration = audioEl.duration;
+            duration = $audio.duration;
         }
     },
-    mounted: () => {
-        $audio = $('audio').first();
-        audioEl = $audio[0];
+    mounted: function () {
+        $audio.src = this.$data.trackList[countTrack].src;
         playEl = $('#play > img');
         pauseEl = $('#pause > img');
         progressEl = $('#progressBar');
-    },
-    updated: () => {
-        $audio = $('audio').first();
-        audioEl = $audio.get(0);
     }
 }

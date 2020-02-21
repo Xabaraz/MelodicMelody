@@ -29,15 +29,14 @@
             </div>
         </div>
 
-        <audio id="audio"
-               crossorigin="anonymous"
-               preload="metadata"
-               type="media"
-               src="../track/Warriors.mp3"
-               @timeupdate="progressBar"
-               @loadedmetadata="getDuration">
-<!--            <source type="audio/mpeg">-->
-        </audio>
+<!--        <audio id="audio"-->
+<!--               crossorigin="anonymous"-->
+<!--               preload="metadata"-->
+<!--               src="../track/Warriors.mp3"-->
+<!--               @timeupdate="progressBar"-->
+<!--               @loadedmetadata="getDuration">-->
+<!--&lt;!&ndash;            <source type="audio/mpeg">&ndash;&gt;-->
+<!--        </audio>-->
     </div>
 </template>
 
