@@ -6,6 +6,7 @@ let duration,
     pauseEl,
     countTrack = 0,
     progressEl,
+    progressBar,
     volumeEl,
     $audio;
 
@@ -109,7 +110,8 @@ export default {
             this.playTrack();
         },
         progressBar: function () {
-            progressEl.value  = `${($audio.currentTime / duration * 100).toFixed(2)}`;
+            progressEl.css('width', `${($audio.currentTime / duration * 100).toFixed(2)}%`);
+            // progressEl.value = `${($audio.currentTime / duration * 100).toFixed(2)}`;
             this.$data.currentTrackTime = getTime($audio.currentTime);
             this.$data.totalTrackTime = getTime(duration);
         },
@@ -121,6 +123,11 @@ export default {
             $audio.volume = this.$data.volume / 100;
             console.log($audio.volume);
             console.log(volumeEl.value);
+        },
+        rewind: function (evt) {
+            let mouseX = evt.pageX - progressEl.offset().left;
+            $audio.currentTime = duration * (mouseX / progressBar.width());
+            this.progressBar();
         }
     },
     mounted: function () {
@@ -129,7 +136,8 @@ export default {
         $audio.src = this.$data.trackList[countTrack].src;
         playEl = $('#play > img');
         pauseEl = $('#pause > img');
-        progressEl = $('#trackProgressBar');
+        progressEl = $('#progressEl');
+        progressBar = $('#progressBar');
         this.getDuration();
     }
 

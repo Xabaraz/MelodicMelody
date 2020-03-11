@@ -20,9 +20,9 @@
                 <div id="Album" class="player__track-description">{{ album }}</div>
             </div>
         </div>
-        <div class="player__progress-track--container">
-            <div class="player__progress-track">
-                <input id="trackProgressBar" type="range" @change="progressBar">
+        <div class="player__progress-track--container" @click="rewind">
+            <div id="progressBar" class="player__progress-track">
+                <div id="progressEl" class="player__progress-track player__progress-track--fill"></div>
                 <div class="player__track-description player__track-description--time player__track-description--time-current">{{currentTrackTime}}</div>
                 <div class="player__track-description player__track-description--time player__track-description--time-total">{{totalTrackTime}}</div>
             </div>

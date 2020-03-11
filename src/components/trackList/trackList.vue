@@ -1,11 +1,10 @@
 <template>
-
     <div>
         <ul>
-            <Track v-bind:trackList="trackList" />
+            <trackEl v-for="track in trackList" :key="track.src" />
         </ul>
     </div>
 
 </template>
 
-<script src="trackList.js"></script>
+<script src="./trackList.js"></script>
