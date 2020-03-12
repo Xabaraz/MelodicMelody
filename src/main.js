@@ -3,7 +3,7 @@ import App from './App.vue';
 import Player from './components/player/player.vue';
 import NavBar from './components/navBar/navBar.vue';
 import Content from './components/content/content.vue';
-import TrackEl from "./components/trackElement/Track.vue";
+import TrackEl from "./components/trackElement/TrackEl.vue";
 
 Vue.component('player', Player);
 Vue.component('navBar', NavBar);

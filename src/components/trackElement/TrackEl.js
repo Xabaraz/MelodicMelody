@@ -14,12 +14,11 @@ export default {
     },
     methods:{
         chosenTrack: function (track) {
+            console.log(track);
             let $audio = $('audio').get(0);
             $audio.pause();
             $audio.src = require(track.src.replace('@','./src/'));
             $audio.play();
-            // console.log(this.$data);
-            // console.log(e);
         }
     },
     async created() {

@@ -1,4 +1,4 @@
-import Track from "../trackElement/Track";
+import Track from "../trackElement/TrackEl";
 import Vue from 'vue';
 
 import TrackService from "../../js/TrackService";
