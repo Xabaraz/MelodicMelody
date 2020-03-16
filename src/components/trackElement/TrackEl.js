@@ -1,29 +1,33 @@
-import TrackService from "../../js/TrackService";
+import TrackService from "../../js/TrackService.js";
 import * as $ from "jquery";
+import Track from "../../js/Models/Track.js";
+import {store} from "../../js/Store";
+import {mapState} from "vuex";
 
 export default {
     name: "TrackEl",
-    data()  {
+    data() {
         return {
-            trackList: [],
-            error: '',
-            // src: '',
-            // title: '',
-            // albums: ''
+            error: ''
         }
     },
-    methods:{
+    store,
+    computed: mapState({
+        trackList: state => state.trackList
+    }),
+    methods: {
         chosenTrack: function (track) {
             console.log(track);
             let $audio = $('audio').get(0);
             $audio.pause();
-            $audio.src = require(track.src.replace('@','./src/'));
+            const trackR = new Track(track.src, track.title, track.album);
+            $audio.src = trackR.src;
             $audio.play();
         }
     },
     async created() {
         try {
-            this.trackList = await TrackService.getTracks();
+            store.state.trackList = await TrackService.getTracks();
         } catch (e) {
             this.error = e.message
         }

@@ -1,6 +1,5 @@
 import Track from "../trackElement/TrackEl";
 import Vue from 'vue';
-
 import TrackService from "../../js/TrackService";
 
 Vue.component('trackEl',Track);
@@ -10,13 +9,6 @@ export default {
         return {
             trackList: [],
             error: '',
-            // trackList: [
-            //     {
-            //         src: require('@tracks/Warriors.mp3'),
-            //         title: 'Warriors',
-            //         album: 'White Rose'
-            //     }
-            // ]
         }
     },
     async created() {

@@ -11,6 +11,7 @@
                  v-bind:index="index"
                  v-bind:key="trackEl._id"
             >
+                <p class="player__track-description">{{count}}</p>
                 <p class="player__track-description">{{trackEl.title}}</p>
                 <p class="player__track-description">{{trackEl.album}}</p>
             </div>

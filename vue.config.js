@@ -8,6 +8,7 @@ module.exports = {
                 "@images": path.resolve(__dirname, 'src/images'),
                 "@tracks": path.resolve(__dirname, 'src/tracks'),
             }
-        }
-    }
+        },
+    },
+
 };
