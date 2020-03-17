@@ -1,0 +1,33 @@
+.track-list {
+    width: 20%;
+    position: absolute;
+    left: 3%;
+    display: block;
+    top: 10%;
+    height: inherit;
+}
+
+.track {
+    width: inherit;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+.track-container {
+    overflow-y: scroll;
+    height: 80%;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $textColor;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $barFill;
+}

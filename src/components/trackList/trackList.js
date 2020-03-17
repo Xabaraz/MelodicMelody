@@ -1,21 +1,33 @@
-import Track from "../trackElement/TrackEl";
-import Vue from 'vue';
-import TrackService from "../../js/TrackService";
+import TrackService from "../../js/TrackService.js";
+import * as Util from "../../js/utils.js"
+import {store} from "../../js/Store";
+import {mapState} from "vuex";
 
-Vue.component('trackEl',Track);
+let realStore = store.state;
+
 export default {
-    name: "trackList",
-    data: () => {
+    data() {
         return {
-            trackList: [],
-            error: '',
+            error: ''
+        }
+    },
+    store,
+    computed: mapState({
+        trackList: state => state.trackList
+    }),
+    methods: {
+        chosenTrack: function (track) {
+            realStore.album = track.album;
+            realStore.title = track.title;
+            realStore.$audio.src = track.src;
+            Util.pausePlay(realStore);
         }
     },
     async created() {
         try {
-            this.trackList = await TrackService.getTracks();
+            realStore.trackList = await TrackService.getTracks();
         } catch (e) {
             this.error = e.message
         }
-    },
+    }
 }

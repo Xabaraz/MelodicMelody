@@ -4,12 +4,13 @@ import Vue from 'vue';
 Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
+        pauseEl: '',
+        playEl: '',
         trackList: [],
-        trackIndex: 0
+        trackIndex: 0,
+        title: '',
+        album: '',
+        $audio: '',
     },
-    mutations: {
-        setTrackList: (state,trackList) => state.trackList = trackList,
-        getTrack: (state) => state.trackList[state.trackIndex],
-        setTrackIndex: (state,index ) => state.trackIndex = index
-    }
+
 });

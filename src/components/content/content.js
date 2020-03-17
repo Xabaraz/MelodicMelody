@@ -1,4 +1,4 @@
-import trackElem from "../trackElement/TrackEl.vue";
+import trackElem from "../trackList/trackList.vue";
 
 export default {
     components: {trackElem}

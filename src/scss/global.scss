@@ -1,8 +1,8 @@
 @import "variables";
-@import "src/components/player/player";
-@import "src/components/navBar/navBar";
-@import "src/components/content/content";
-@import "src/components/trackElement/TrackEl";
+@import "src/components/player/player.scss";
+@import "src/components/navBar/navBar.scss";
+@import "src/components/content/content.scss";
+@import "src/components/trackList/trackList.scss";
 
 
 * {

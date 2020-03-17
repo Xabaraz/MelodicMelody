@@ -4,7 +4,11 @@ export function getTime(seconds) {
     return `${minutes}:${sec > 9 ? sec : `0${sec}`}`
 }
 
-export function pausePlay($audio) {
-    $audio.pause();
-    $audio.play();
+export function pausePlay(realStore) {
+    if (realStore.pauseEl.hasClass('disable')) {
+        realStore.playEl.addClass('disable');
+        realStore.pauseEl.removeClass('disable');
+    }
+    realStore.$audio.pause();
+    realStore.$audio.play();
 }
