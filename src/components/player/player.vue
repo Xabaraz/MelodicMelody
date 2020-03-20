@@ -17,7 +17,7 @@
             </div>
             <div class="player__track-description">
                 <div id="Title">{{ title}}</div>
-                <div id="Album">{{ this.album }}</div>
+                <div id="Album">{{ album }}</div>
             </div>
         </div>
         <div class="player__progress-track--container">

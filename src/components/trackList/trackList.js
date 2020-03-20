@@ -1,6 +1,6 @@
-import TrackService from "../../js/TrackService.js";
-import * as Util from "../../js/utils.js"
-import {store} from "../../js/Store";
+import TrackService from "../../js/Services/TrackService.js";
+import * as Util from "../../js/Util/utils.js"
+import {store} from "../../js/Store/Store";
 import {mapState} from "vuex";
 
 let realStore = store.state;
@@ -17,9 +17,9 @@ export default {
     }),
     methods: {
         chosenTrack: function (track) {
-            realStore.album = track.album;
-            realStore.title = track.title;
-            realStore.$audio.src = track.src;
+            store.commit(SET_ALBUM, track.album);
+            store.commit(SET_TITLE, track.title);
+            store.commit(SET_SRC, track.src);
             Util.pausePlay(realStore);
         }
     },

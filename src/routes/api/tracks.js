@@ -26,7 +26,6 @@ router.delete('/:id', async (req, res) => {
     res.status(200).send();
 });
 
-
 async function loadTrackCollecttion() {
     const client = await mongodb.MongoClient.connect(
         'mongodb+srv://mongo:mongo@cluster0-eqvda.mongodb.net/test', {

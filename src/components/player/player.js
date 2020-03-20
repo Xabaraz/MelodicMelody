@@ -1,7 +1,7 @@
-import * as Util from "../../js/utils";
+import * as Util from "../../js/Util/utils";
 import * as $ from "jquery";
 import {mapState} from "vuex";
-import {store} from "../../js/Store";
+import {store} from "../../js/Store/Store";
 
 let duration,
     countTrack = 0,
@@ -41,15 +41,19 @@ export default {
             countTrack = (countTrack !== this.trackList.length - 1) ? countTrack + 1 : 0;
             const nextTrack = this.trackList[countTrack];
             realStore.$audio.src = nextTrack.src;
-            this.$data.title = nextTrack.title;
+            store.commit('setTitle', nextTrack.title);
             Util.pausePlay(realStore);
         },
         previous: function () {
             countTrack = (countTrack !== 0) ? countTrack - 1 : this.trackList.length - 1;
             const prevTrack = this.trackList[countTrack];
             realStore.$audio.src = prevTrack.src;
-            this.$data.title = prevTrack.title;
-            Util.pausePlay(realStore);
+            store.dispatch({
+                type: 'setTitle',
+                title: prevTrack.title
+            }).then(() => {
+                Util.pausePlay(realStore);
+            })
         },
         progressBar: function () {
             progressEl.css('width', `${(realStore.$audio.currentTime / duration * 100).toFixed(2)}%`);
@@ -61,7 +65,7 @@ export default {
         },
         changeVolume: function (event) {
             this.$data.volume = event.target.value;
-            $audio.volume = this.$data.volume / 100;
+            store.commit(SET_VOLUME, this.$data.volume / 100);
         },
         rewind: function (evt) {
             let mouseX = evt.pageX - progressEl.offset().left;

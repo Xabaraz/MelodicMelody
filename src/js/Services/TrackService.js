@@ -21,9 +21,9 @@ class TrackService {
 
     static setTrack(src, title, album) {
         return axios.post(url, {
-            url,
+            src,
             title,
-            album
+            album,
         });
     }
 
@@ -31,6 +31,5 @@ class TrackService {
         return axios.delete(`${url}/${id}`);
     }
 }
-
 
 export default TrackService;

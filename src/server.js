@@ -6,6 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/static',express.static('src/tracks'));
 
 const tracks = require('./routes/api/tracks');
 app.use('/api/tracks',tracks);
