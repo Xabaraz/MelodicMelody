@@ -3,7 +3,7 @@
         <p class="error" v-if="error">{{error}}</p>
         <div class="track-container">
             <div class="track"
-                 @click="chosenTrack(track)"
+                 @click="chosenTrack(track, index)"
                  v-for="(track, index) in trackList"
                  v-bind:item="track"
                  v-bind:index="index"

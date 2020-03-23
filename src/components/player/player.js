@@ -2,9 +2,9 @@ import * as Util from "../../js/Util/utils";
 import * as $ from "jquery";
 import {mapState} from "vuex";
 import {store} from "../../js/Store/Store";
+import {SET_TITLE, SET_VOLUME} from "../../js/Constatnts";
 
 let duration,
-    countTrack = 0,
     progressEl,
     progressBar,
     realStore = store.state;
@@ -38,22 +38,27 @@ export default {
             realStore.$audio.pause();
         },
         next: function () {
-            countTrack = (countTrack !== this.trackList.length - 1) ? countTrack + 1 : 0;
-            const nextTrack = this.trackList[countTrack];
+            realStore.trackIndex = (realStore.trackIndex !== this.trackList.length - 1) ? realStore.trackIndex + 1 : 0;
+            const nextTrack = this.trackList[realStore.trackIndex];
             realStore.$audio.src = nextTrack.src;
-            store.commit('setTitle', nextTrack.title);
+            store.commit({
+                type: SET_TITLE,
+                title: nextTrack.title,
+                album: nextTrack.album,
+            });
             Util.pausePlay(realStore);
         },
         previous: function () {
-            countTrack = (countTrack !== 0) ? countTrack - 1 : this.trackList.length - 1;
-            const prevTrack = this.trackList[countTrack];
+            realStore.trackIndex = (realStore.trackIndex !== 0) ? realStore.trackIndex - 1 : this.trackList.length - 1;
+            const prevTrack = this.trackList[realStore.trackIndex];
             realStore.$audio.src = prevTrack.src;
             store.dispatch({
-                type: 'setTitle',
-                title: prevTrack.title
-            }).then(() => {
-                Util.pausePlay(realStore);
-            })
+                type: SET_TITLE,
+                title: prevTrack.title,
+                album: prevTrack.album,
+            });
+            Util.pausePlay(realStore);
+
         },
         progressBar: function () {
             progressEl.css('width', `${(realStore.$audio.currentTime / duration * 100).toFixed(2)}%`);

@@ -1,6 +1,16 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
-// import * from '../Constatnts.js';
+import {
+    DECREMENT_TRACK_INDEX,
+    INCREMENT_TRACK_INDEX,
+    SET_ALBUM,
+    SET_AUDIO,
+    SET_PAUSE_EL,
+    SET_PLAY_EL,
+    SET_TITLE,
+    SET_TRACK_INDEX,
+    SET_TRACK_LIST
+} from "../Constatnts";
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
@@ -14,7 +24,7 @@ export const store = new Vuex.Store({
         $audio: '',
     },
     mutations: {
-        setPauseEl(state, pauseEl) {
+        setPauseEl(state,pauseEl) {
             state.pauseEl = pauseEl;
         },
         setPlayEl(state, playEl) {
@@ -32,11 +42,9 @@ export const store = new Vuex.Store({
         setTrackIndex(state, trackIndex) {
             state.trackIndex = trackIndex;
         },
-        setTitle(state, title) {
-            state.title = title;
-        },
-        setAlbum(state, album) {
-            state.album = album;
+        setTitle(state, item) {
+            state.title = item.title;
+            state.album = item.album;
         },
         setAudio(state, audio) {
             state.$audio = audio;
@@ -45,7 +53,7 @@ export const store = new Vuex.Store({
             state.$audio.volume = volume;
         },
         setSrc(state, src) {
-            state.$audio.crs = src;
+            state.$audio.src = src;
         }
     },
     actions: {
@@ -67,11 +75,8 @@ export const store = new Vuex.Store({
         setTrackIndex(context, trackIndex) {
             context.commit(SET_TRACK_INDEX, trackIndex);
         },
-        setTitle(context, title) {
-            context.commit(SET_TITLE, title);
-        },
-        setAlbum(context, album) {
-            context.commit(SET_ALBUM, album);
+        setTitle(context, title, album) {
+            context.commit(SET_TITLE, title, album);
         },
         setAudio(context, audio) {
             context.commit(SET_AUDIO, audio);
