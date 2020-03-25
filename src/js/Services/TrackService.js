@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const url = 'http://localhost:8081/api/tracks';
 
-class TrackService {
+export default class TrackService {
     static getTracks() {
         return new Promise(async (resolve, reject) => {
             try {
@@ -31,5 +31,3 @@ class TrackService {
         return axios.delete(`${url}/${id}`);
     }
 }
-
-export default TrackService;
