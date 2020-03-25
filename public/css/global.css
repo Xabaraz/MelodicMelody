@@ -1,0 +1,188 @@
+.player__container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #0d1525; }
+  .player__container--top {
+    width: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+.player__buttons {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  margin-left: 15px; }
+  .player__buttons:active {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8); }
+  .player__buttons.disable {
+    display: none; }
+  .player__buttons--container {
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+.player__track-description {
+  color: #27ff00; }
+  .player__track-description--time {
+    position: absolute;
+    top: 4px; }
+    .player__track-description--time-current {
+      left: 5px; }
+    .player__track-description--time-total {
+      right: 5px; }
+
+.player__progress-track {
+  background: #959292;
+  width: calc(100vw - 60px);
+  height: 30px;
+  border-radius: 8px;
+  position: relative; }
+  .player__progress-track--container {
+    margin: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+  .player__progress-track--fill {
+    width: 1%;
+    background: #FF9100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.navBar__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100vw;
+  background: #0d1525;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.navBar__pages--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: inherit;
+  margin: 0 30px; }
+
+.navBar__page {
+  width: 50px;
+  margin: 0 10px;
+  border: none;
+  background: #0d1525;
+  color: #27ff00;
+  text-transform: uppercase; }
+  .navBar__page:active {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8); }
+
+.navBar__account {
+  color: #27ff00; }
+  .navBar__account--container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 20px; }
+
+.content__container {
+  width: 100vw;
+  height: calc(100vh - 210px);
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.content__picture {
+  height: inherit; }
+
+.track-list {
+  width: 20%;
+  position: absolute;
+  left: 3%;
+  display: block;
+  top: 10%;
+  height: inherit; }
+
+.track {
+  width: inherit;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding-left: 15px; }
+
+.track-container {
+  overflow-y: scroll;
+  height: 80%; }
+
+::-webkit-scrollbar {
+  width: 5px; }
+
+::-webkit-scrollbar-thumb {
+  background: #27ff00;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9100; }
+
+* {
+  font-family: 'Poppins', sans-serif; }
