@@ -1,0 +1,35 @@
+.slider {
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    &__button{
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top:50%;
+        color: $textColor;
+        &-prev {
+            left:5%;
+            transform: rotate(180deg);
+        }
+        &-next {
+            right:5%;
+        }
+    }
+}
+
+.slide {
+    position: center;
+    height: 1000px;
+    width: 1500px;
+    display: none;
+}
+
+.active {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+

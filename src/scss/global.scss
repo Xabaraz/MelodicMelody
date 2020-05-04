@@ -1,0 +1,12 @@
+@import "variables";
+@import "src/components/player/player.scss";
+@import "src/components/navBar/navBar.scss";
+@import "src/components/content/content";
+@import "src/components/trackList/trackList.scss";
+@import "src/components/content/home/home.scss";
+
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
