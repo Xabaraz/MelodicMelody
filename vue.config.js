@@ -9,6 +9,24 @@ module.exports = {
                 "@tracks": path.resolve(__dirname, 'src/tracks'),
             }
         },
+        module: {
+            rules: [
+                {
+                    test: /\.scss$/,
+                    use: [
+                        'vue-style-loader',
+                        'css-loader',
+                        'sass-loader'
+                    ]
+                }
+            ]
+        },
     },
+    devServer: {
+        overlay: {
+            warnings: true,
+            errors: true
+        }
+    }
 
 };

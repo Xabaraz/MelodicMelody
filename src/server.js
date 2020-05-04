@@ -6,10 +6,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/static',express.static('src/tracks'));
+app.use('/static', express.static('src/tracks'));
 
 const tracks = require('./routes/api/tracks');
-app.use('/api/tracks',tracks);
+app.use('/api/tracks', tracks);
 
 const port = process.env.PORT || 8081;
 app.listen(port, () => {

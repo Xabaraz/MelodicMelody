@@ -1,4 +1,3 @@
-import StoreService from "../Services/StoreService";
 
 export function getTime(seconds) {
     let minutes = Math.trunc(seconds / 60) || 0;
@@ -6,11 +5,15 @@ export function getTime(seconds) {
     return `${minutes}:${sec > 9 ? sec : `0${sec}`}`
 }
 
-export function pausePlay() {
-    if (StoreService.getPauseEl().hasClass('disable')) {
-        StoreService.getPlayEl().addClass('disable');
-        StoreService.getPauseEl().removeClass('disable');
+export function pausePlay(store) {
+    playVue(store);
+    store.state.$audio.pause();
+    store.state.$audio.play();
+}
+
+export function playVue(store) {
+    if (store.state.pauseEl.classList.contains('disable')) {
+        store.state.playEl.classList.add('disable');
+        store.state.pauseEl.classList.remove('disable');
     }
-    StoreService.getAudio().pause();
-    StoreService.getAudio().play();
 }

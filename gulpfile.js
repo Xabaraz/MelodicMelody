@@ -15,6 +15,7 @@ function style() {
 
 function watcher() {
     watch(['./src/scss/**/*.scss']).on('change', style);
+    watch(['./src/**/*.scss']).on('change', style);
 }
 
 exports.default = series(style, watcher);

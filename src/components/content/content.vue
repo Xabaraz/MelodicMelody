@@ -1,8 +1,9 @@
 <template>
     <div class="content__container">
-        <trackList></trackList>
-        <img src="@images/title.jpg" class="content__picture">
+        <musicEl></musicEl>
+        <homeEl></homeEl>
     </div>
+
 </template>
 
 <script src="./content.js" />

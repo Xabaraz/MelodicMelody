@@ -1,5 +1,6 @@
-import trackElem from "../trackList/trackList.vue";
+import musicEl from "./music/music.vue";
+import homeEl from "./home/home.vue";
 
 export default {
-    components: {trackElem}
+    components: {musicEl, homeEl},
 }

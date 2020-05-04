@@ -1,13 +1,25 @@
 <template>
     <div class="navBar__container">
-        <div class="navBar__pages--container">
-            <button class="navBar__page">1</button>
-            <button class="navBar__page">2</button>
-            <button class="navBar__page">3</button>
-        </div>
-        <div class="navBar__account navBar__account--container">
-            <div class="navBar__account--nik-name">User</div>
-            <div class="navBar__account--theme">THEME</div>
+       <div class="navBar__title">
+            Melodic Malady
+       </div>
+        <div class="navBar__menu">
+            <div class="navBar__menu--container">
+                <div class="item__contact-item">
+                    <img src="@icons/vk.svg">
+                </div>
+                <div class="item__contact-item"></div>
+                <div class="item__contact-item"></div>
+            </div>
+            <div class="navBar__menu--container">
+                <div class="item__menu-item">home</div>
+                <div class="item__menu-item">video</div>
+                <div class="item__menu-item">music</div>
+                <div class="item__menu-item">tour</div>
+            </div>
+            <div class="navBar__menu--container">
+                <div class="item__some-item">Some</div>
+            </div>
         </div>
     </div>
 </template>

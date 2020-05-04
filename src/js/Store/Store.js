@@ -5,14 +5,14 @@ import {
     INCREMENT_TRACK_INDEX,
     SET_AUDIO,
     SET_PAUSE_EL,
-    SET_PLAY_EL,
-    SET_TITLE,
+    SET_PLAY_EL, SET_PLAYER_EL,
+    SET_TRACK,
     SET_TRACK_INDEX,
     SET_TRACK_LIST, SET_VOLUME
 } from "../Constatnts";
 
 Vue.use(Vuex);
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
     state: {
         pauseEl: '',
         playEl: '',
@@ -23,67 +23,34 @@ export const store = new Vuex.Store({
         $audio: '',
     },
     mutations: {
-        setPauseEl(state, pauseEl) {
-            state.pauseEl = pauseEl;
+        [SET_PLAYER_EL](state, payload) {
+            state.pauseEl = payload.pauseEl;
+            state.playEl = payload.playEl;
         },
-        setPlayEl(state, playEl) {
-            state.playEl = playEl;
-        },
-        setTrackList(state, trackList) {
+        [SET_TRACK_LIST](state, trackList) {
             state.trackList = trackList;
         },
-        incrementTrackIndex(state) {
+        [INCREMENT_TRACK_INDEX](state) {
             state.trackIndex = (state.trackIndex !== state.trackList.length - 1) ? state.trackIndex + 1 : 0;
         },
-        decrementTrackIndex(state) {
+        [DECREMENT_TRACK_INDEX](state) {
             state.trackIndex = (state.trackIndex !== 0) ? state.trackIndex - 1 : state.trackList.length - 1;
         },
-        setTrackIndex(state, trackIndex) {
+        [SET_TRACK_INDEX](state, trackIndex) {
             state.trackIndex = trackIndex;
         },
-        setTitle(state, item) {
-            state.title = item.title;
+        [SET_TRACK](state, track) {
+            state.title = track.title;
+            state.album = track.album;
+            state.$audio.src = track.src;
         },
-        setAlbum(state, item) {
-            state.album = item.album;
-        },
-        setAudio(state, audio) {
+        [SET_AUDIO](state, audio) {
             state.$audio = audio;
         },
-        setVolume(state, volume) {
+        [SET_VOLUME](state, volume) {
             state.$audio.volume = volume;
         },
-        setSrc(state, src) {
-            state.$audio.src = src;
-        }
-    },
-    actions: {
-        setPauseEl(context, pauseEl) {
-            context.commit(SET_PAUSE_EL, pauseEl);
-        },
-        setPlayEl(context, playEl) {
-            context.commit(SET_PLAY_EL, playEl);
-        },
-        setTrackList(context, trackList) {
-            context.commit(SET_TRACK_LIST, trackList);
-        },
-        incrementTrackIndex(context) {
-            context.commit(INCREMENT_TRACK_INDEX);
-        },
-        decrementTrackIndex(context) {
-            context.commit(DECREMENT_TRACK_INDEX);
-        },
-        setTrackIndex(context, trackIndex) {
-            context.commit(SET_TRACK_INDEX, trackIndex);
-        },
-        setTitle(context, title, album) {
-            context.commit(SET_TITLE, title, album);
-        },
-        setVolume(context, volume) {
-            context.commit(SET_VOLUME, volume);
-        },
-        setAudio(context, audio) {
-            context.commit(SET_AUDIO, audio);
-        }
     }
 });
+
+export default store;

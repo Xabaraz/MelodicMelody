@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <navBar></navBar>
-        <mainPic></mainPic>
+        <contentContainer></contentContainer>
         <player></player>
     </div>
 </template>
